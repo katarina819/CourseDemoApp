@@ -2,7 +2,7 @@ services:
   - type: web
     name: CourseDemoApp
     env: java
-    buildCommand: java -version && echo $JAVA_HOME && ./mvnw clean install
+    buildCommand: ./mvnw clean install
     startCommand: java -jar target/yourapp.jar
     envVars:
       - key: JAVA_HOME
