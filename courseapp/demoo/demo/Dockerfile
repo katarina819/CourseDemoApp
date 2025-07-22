@@ -1,13 +1,21 @@
-# Build faza
-FROM maven:3.8.6-eclipse-temurin-17 AS build
-WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-RUN mvn clean package -DskipTests
+# Base image
+FROM eclipse-temurin:17-jdk-alpine
 
-# Run faza
-FROM eclipse-temurin:17-jre
+# Create directory
 WORKDIR /app
-COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
+
+# Copy pom.xml and download dependencies
+COPY pom.xml .
+RUN ./mvnw dependency:go-offline
+
+# Copy source code
+COPY . .
+
+# Build the application
+RUN ./mvnw clean package -DskipTests
+
+# Expose port
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Run the app
+CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
