@@ -23,10 +23,10 @@ public class CourseController {
 
     @GetMapping("/")
     public String index(Model model, Principal principal) {
-        List<Course> courses = courseRepository.findAll();  // 🔹 Dodano!
-        model.addAttribute("courses", courses);             // 🔹 Dodano!
+        List<Course> courses = courseRepository.findAll();  
+        model.addAttribute("courses", courses);             
         model.addAttribute("isAuthenticated", principal != null);
-        model.addAttribute("username", principal != null ? principal.getName() : null); // 🔹 Za prikaz imena
+        model.addAttribute("username", principal != null ? principal.getName() : null); //  Za prikaz imena
         return "index";
     }
 
@@ -34,6 +34,6 @@ public class CourseController {
     public String adminPanel(Model model) {
         List<Course> courses = courseRepository.findAll();
         model.addAttribute("courses", courses);
-        return "admin";    // Očekuje se src/main/resources/templates/admin.html
+        return "admin";    
     }
 }

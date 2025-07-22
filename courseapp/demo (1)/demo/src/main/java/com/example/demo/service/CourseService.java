@@ -36,6 +36,6 @@ public class CourseService {
         commercetoolsClient
             .products()
             .post(productDraft)
-            .executeBlocking(); // možeš koristiti i async ako želiš
+            .executeBlocking(); 
     }
 }

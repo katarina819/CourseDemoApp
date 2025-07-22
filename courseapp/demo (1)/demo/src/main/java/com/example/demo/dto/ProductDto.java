@@ -5,7 +5,7 @@ public class ProductDto {
     private String name;
     private String description;
     private Integer priceCentAmount;      // cijena u centima
-    private String priceCurrencyCode;     // valuta, npr. EUR
+    private String priceCurrencyCode;     // valuta, EUR
     private String startDate;
     private String duration;
 
