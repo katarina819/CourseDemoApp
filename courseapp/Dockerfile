@@ -1,15 +1,16 @@
-# Postavi radni direktorij u /app unutar Docker imagea
+FROM eclipse-temurin:17-jdk-alpine
+
 WORKDIR /app
 
-# Kopiraj mvnw i pom.xml iz pravog foldera u /app u imageu
-COPY demoo/demo/mvnw .
-COPY demoo/demo/pom.xml .
+# Kopiraj mvnw i pom.xml iz pravog foldera u image
+COPY ../demoo/demo/mvnw .
+COPY ../demoo/demo/pom.xml .
 
-# Daj execute permisiju mvnw (bitno za Linux kontejnere)
+# Daj execute permisiju na mvnw
 RUN chmod +x mvnw
 
-# Pokreni mvnw da preuzme dependency-e offline
+# Preuzmi dependency-e offline
 RUN ./mvnw dependency:go-offline
 
-# Kopiraj ostatak koda iz demoo/demo u /app
-COPY demoo/demo/src ./src
+# Kopiraj cijeli izvorni kod
+COPY ../demoo/demo/src ./src
