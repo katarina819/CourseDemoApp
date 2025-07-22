@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: courseapp
+    env: java
+    buildCommand: ./mvnw clean install
+    startCommand: java -jar target/*.jar
+    plan: free
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://tvojhost:5432/tvojabaza
+      - key: SPRING_DATASOURCE_USERNAME
+        value: tvojusername
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: tvojpassword
+      - key: COMMERCETOOLS_PROJECTKEY
+        value: tvoj_project_key
+      - key: COMMERCETOOLS_CLIENTID
+        value: tvoj_client_id
+      - key: COMMERCETOOLS_CLIENTSECRET
+        value: tvoj_client_secret
