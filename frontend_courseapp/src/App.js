@@ -11,9 +11,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* ovo zamijeni s CoursesList da ti se prikazuje na /courses */}
+        
         <Route path="/courses" element={<CoursesList />} />
-        {/* ako ti treba, možeš courses-simple ostaviti ili obrisati */}
+        
         <Route path="/courses-simple" element={<CoursesPage />} /> 
          <Route path="/top-courses" element={<TopCourses />} />  
       </Routes>
