@@ -4,7 +4,7 @@ function CoursesPage() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/courses')
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/products`)
       .then(response => response.json())
       .then(data => setCourses(data))
       .catch(error => console.error('Greška pri dohvaćanju tečajeva:', error));

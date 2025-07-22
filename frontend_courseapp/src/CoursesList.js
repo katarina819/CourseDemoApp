@@ -7,16 +7,16 @@ function CoursesList() {
   const [selectedCourse, setSelectedCourse] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8080/products', {
-      credentials: 'include'
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/products`, {
+    credentials: 'include'
+  })
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      return res.json();
     })
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        return res.json();
-      })
-      .then(data => setProducts(data))
-      .catch(err => console.error(err));
-  }, []);
+    .then(data => setProducts(data))
+    .catch(err => console.error(err));
+}, []);
 
   return (
     <div className="courses-container">
