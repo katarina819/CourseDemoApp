@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tečajevi</title>
+</head>
+<body>
+    <h1>Dostupni tečajevi</h1>
+
+    <ul>
+        <li th:each="course : ${courses}" th:text="${course.title}">Tečaj</li>
+    </ul>
+
+    <div th:if="${#lists.isEmpty(courses)}">
+        Nema dostupnih tečajeva.
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <p>Pregled svih tečajeva i prijava</p>
+
+    <ul>
+        <li th:each="course : ${courses}">
+            <strong th:text="${course.title}">Tečaj</strong>
+        </li>
+    </ul>
+
+    
+</body>
+</html>

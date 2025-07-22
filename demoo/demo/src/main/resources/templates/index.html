@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dostupni Tečajevi</title>
+</head>
+<body>
+    <h1>Dobrodošli u CourseApp!</h1>
+
+    <!-- 👇 Login/Logout sekcija -->
+    <div th:if="${!isAuthenticated}">
+        <a th:href="@{/login}">Prijava</a>
+    </div>
+    <div th:if="${isAuthenticated}">
+        <span>Ulogirani ste kao: <strong th:text="${username}">korisnik</strong></span>
+        <a th:href="@{/logout}">Odjava</a>
+    </div>
+
+    <h2>Dostupni tečajevi:</h2>
+    <ul>
+        <li th:each="course : ${courses}">
+            <strong th:text="${course.title}"></strong> - 
+            <span th:text="${course.description}"></span>
+        </li>
+    </ul>
+
+    <a href="/students/register">Registracija studenta</a>
+</body>
+</html>
