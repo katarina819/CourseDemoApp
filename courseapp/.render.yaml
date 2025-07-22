@@ -1,20 +1,19 @@
 services:
   - type: web
     name: courseapp
-    env: java
-    buildCommand: ./mvnw clean install
-    startCommand: java -jar target/*.jar
+    env: docker
+    dockerfilePath: Dockerfile
     plan: free
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:postgresql://tvojhost:5432/tvojabaza
+        fromEnvironment: true
       - key: SPRING_DATASOURCE_USERNAME
-        value: tvojusername
+        fromEnvironment: true
       - key: SPRING_DATASOURCE_PASSWORD
-        value: tvojpassword
+        fromEnvironment: true
       - key: COMMERCETOOLS_PROJECTKEY
-        value: tvoj_project_key
+        fromEnvironment: true
       - key: COMMERCETOOLS_CLIENTID
-        value: tvoj_client_id
+        fromEnvironment: true
       - key: COMMERCETOOLS_CLIENTSECRET
-        value: tvoj_client_secret
+        fromEnvironment: true

@@ -18,11 +18,11 @@ RUN ./mvnw dependency:go-offline
 # Kopiraj ostatak source koda
 COPY src ./src
 
-# Buildaj aplikaciju
+# Buildaj aplikaciju (preskači testove da build brže ide)
 RUN ./mvnw clean package -DskipTests
 
 # Postavi port koji će Render koristiti (Render koristi PORT env var)
 EXPOSE 8080
 
-# Pokreni aplikaciju
-CMD ["java", "-jar", "target/*.jar"]
+# Pokreni aplikaciju - zamijeni ovo sa stvarnim nazivom jar fajla
+CMD ["java", "-jar", "target/courseapp-0.0.1-SNAPSHOT.jar"]
