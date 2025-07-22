@@ -2,8 +2,11 @@ services:
   - type: web
     name: CourseDemoApp
     env: java
-    buildCommand: java -version && echo $JAVA_HOME && ./mvnw clean install
-    startCommand: java -jar target/yourapp.jar
+    buildCommand: ./mvnw clean install
+    startCommand: java -jar target/demo-0.0.1-SNAPSHOT.jar
     envVars:
+      - key: SPRING_DATASOURCE_URL
+      - key: SPRING_DATASOURCE_USERNAME
+      - key: SPRING_DATASOURCE_PASSWORD
       - key: JAVA_HOME
         value: /usr/lib/jvm/java-11-openjdk-amd64
