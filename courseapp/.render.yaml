@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: courseapp
+    env: java
+    buildCommand: ./mvnw clean install
+    startCommand: java -jar target/demo-0.0.1-SNAPSHOT.jar
+    buildFilter:
+      paths:
+        - "src/**"
+        - "pom.xml"
