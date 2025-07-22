@@ -1,20 +1,19 @@
 FROM eclipse-temurin:17-jdk-alpine
 
-# Kopiraj Maven Wrapper i pom.xml (za caching)
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-
-# Dozvoli izvršavanje mvnw
-RUN chmod +x mvnw
-
-# Preuzmi ovisnosti (cache)
-RUN ./mvnw dependency:go-offline
+# Instaliraj Maven i ostale potrebne alate
+RUN apk add --no-cache maven bash
 
 WORKDIR /app
 
+# Kopiraj pom.xml i src direktorij u kontejner
+COPY pom.xml .
 COPY src ./src
 
-RUN ./mvnw package
+# Preuzmi sve ovisnosti (offline mod)
+RUN mvn dependency:go-offline
 
-CMD ["java", "-jar", "target/courseapp-0.0.1-SNAPSHOT.jar"]
+# Buildaj projekt (npr. package fazu)
+RUN mvn package
+
+# Opcionalno: naredbe za pokretanje aplikacije
+CMD ["java", "-jar", "target/tvoj-artifact.jar"]
