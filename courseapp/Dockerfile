@@ -1,28 +1,20 @@
-# Koristi Java 17 JDK baziranu na Alpine
 FROM eclipse-temurin:17-jdk-alpine
 
-# Postavi radni direktorij u kontejneru
-WORKDIR /app
-
-# Kopiraj Maven Wrapper i pom.xml (za dependency caching)
+# Kopiraj Maven Wrapper i pom.xml (za caching)
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 
-# Omogući izvršavanje Maven Wrapper skripte
+# Dozvoli izvršavanje mvnw
 RUN chmod +x mvnw
 
-# Preuzmi sve dependencije da se cache koristi
+# Preuzmi ovisnosti (cache)
 RUN ./mvnw dependency:go-offline
 
-# Kopiraj ostatak source koda
+WORKDIR /app
+
 COPY src ./src
 
-# Buildaj aplikaciju (preskači testove da build brže ide)
-RUN ./mvnw clean package -DskipTests
+RUN ./mvnw package
 
-# Postavi port koji će Render koristiti (Render koristi PORT env var)
-EXPOSE 8080
-
-# Pokreni aplikaciju - zamijeni ovo sa stvarnim nazivom jar fajla
 CMD ["java", "-jar", "target/courseapp-0.0.1-SNAPSHOT.jar"]
