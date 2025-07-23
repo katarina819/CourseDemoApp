@@ -49,7 +49,7 @@ useEffect(() => {
     }, 4000); // svake 4 sekunde se mijenja poruka
 
     return () => clearInterval(interval);
-  }, [isLoading]);
+  }, [isLoading, loadingMessages.length]);
 
 if (isLoading) {
     return (
