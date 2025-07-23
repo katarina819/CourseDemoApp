@@ -15,7 +15,7 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 - Commercetools
 - Deployment: Render 
 
-### ✅ Frontend
+#### ✅ Frontend
 - React 19
 - React Router DOM
 - CSS
@@ -23,7 +23,7 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 
 ---
 
-## 📦 Backend Setup
+### 📦 Backend Setup
 
 ### 🔧 Pokretanje lokalno (bez Dockera)
 
@@ -53,7 +53,7 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 
 ---
 
-## 🐳 Pokretanje s Dockerom
+### 🐳 Pokretanje s Dockerom
 
 1. U korijenu backend direktorija napravi Docker image:
    ```bash
@@ -67,7 +67,7 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 
 ---
 
-## 🎨 Frontend Setup (React)
+# 🎨 Frontend Setup (React)
 
 1. Idi u frontend direktorij:
    ```bash
@@ -91,7 +91,7 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 
 ---
 
-## 🔗 Backend URL
+# 🔗 Backend URL
 
 Kreiraj .env datoteku u frontend/ direktoriju:
 ```bash
@@ -100,7 +100,7 @@ REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
 
 ---
 
-## 🌍 Deployment
+ ** 🌍 Deployment **
 
    🧾 Backend (Render)
    
@@ -115,7 +115,7 @@ REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
 
 ---
 
-## 🌐 Frontend (Netlify)
+** 🌐 Frontend (Netlify) **
 
    
    Platforma: https://netlify.com
