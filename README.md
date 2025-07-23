@@ -31,7 +31,7 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
    ```bash
    git clone https://github.com/tvoj-username/courseapp.git
    cd courseapp/backend
-   ```bash
+   
 
 2. Uredi src/main/resources/application.properties:
    ```bash
@@ -39,17 +39,17 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
    spring.datasource.username=postgres
    spring.datasource.password=lozinka
    spring.jpa.hibernate.ddl-auto=update
-   ```bash
+   
 
 3. Pokreni aplikaciju:
    ```bash
    ./mvnw spring-boot:run
-   ```bash
+   
 
 4. Aplikacija je dostupna na:
    ```bash
    http://localhost:8080/courses
-   ```bash
+   
 
 ---
 
@@ -58,12 +58,12 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 1. U korijenu backend direktorija napravi Docker image:
    ```bash
    docker build -t courseapp-backend .
-   ```bash
+   
 
 2. Pokreni container:
    ```bash
    docker run -p 8080:8080 courseapp-backend
-   ```bash
+   
 
 ---
 
@@ -72,22 +72,22 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 1. Idi u frontend direktorij:
    ```bash
    cd ../frontend
-   ```bash
+   
 
 2. Instaliraj pakete:
    ```bash
    npm install
-   ```bash
+   
 
 3. Pokreni aplikaciju:
    ```bash
    npm start
-   ```bash
+   
 
 4. Otvori:
    ```bash
    http://localhost:3000
-    ```bash
+    
 
 ---
 
@@ -96,7 +96,7 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 Kreiraj .env datoteku u frontend/ direktoriju:
 ```bash
 REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
-```bash
+
 
 ---
 
@@ -111,7 +111,7 @@ URL npr.: https://coursedemoapp-1.onrender.com
 Build Command: ./mvnw clean install -DskipTests
 
 Start Command: java -jar target/demo-0.0.1-SNAPSHOT.jar
-```bash
+
 
 ---
 
@@ -126,6 +126,6 @@ Publish folder: build
 
 Environment varijabla:
 REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
-```bash
+
 
 
