@@ -40,7 +40,8 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private List<Student> students = new ArrayList<>();
 
-    public Course(String title) {
-        this.title = title;
-    }
+    public Course(String title, String description) {
+  this.title = title;
+  this.description = description;
+}
 }
