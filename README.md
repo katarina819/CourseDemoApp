@@ -102,30 +102,30 @@ REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
 
 ## 🌍 Deployment
 
-🧾 Backend (Render)
-```bash
-Platforma: https://render.com
+   🧾 Backend (Render)
+   
+   Platforma: https://render.com
 
-URL npr.: https://coursedemoapp-1.onrender.com
+   URL npr.: https://coursedemoapp-1.onrender.com
 
-Build Command: ./mvnw clean install -DskipTests
+   Build Command: ./mvnw clean install -DskipTests
 
-Start Command: java -jar target/demo-0.0.1-SNAPSHOT.jar
+   Start Command: java -jar target/demo-0.0.1-SNAPSHOT.jar
 
 
 ---
 
 ## 🌐 Frontend (Netlify)
 
-```bash
-Platforma: https://netlify.com
+   
+   Platforma: https://netlify.com
 
-Build command: npm run build
+   Build command: npm run build
 
-Publish folder: build
+   Publish folder: build
 
-Environment varijabla:
-REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
+   Environment varijabla:
+   REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
 
 
 
