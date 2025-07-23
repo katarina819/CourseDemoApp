@@ -12,13 +12,14 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 - PostgreSQL
 - Maven
 - Docker
-- Commercetools 
+- Commercetools
+- Deployment: Render 
 
 ### ✅ Frontend
 - React 19
 - React Router DOM
 - CSS
-- Netlify za deployment
+- Deployment: Netlify
 
 ---
 
