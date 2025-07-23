@@ -5,6 +5,18 @@ import './CoursesList.css';
 function CoursesList() {
   const [products, setProducts] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [fade, setFade] = useState(false);
+
+  const loadingMessages = [
+    "⌛ Učitavamo tečajeve...",
+    "⏳ Molimo pričekajte max 3 min...",
+    "⏰ Još malo pa će se učitati...",
+    "🚀 Ubrzo stiže popis aktivnih tečajeva na koje se možete prijaviti...",
+    "📋 Popis tečajeva stiže..."
+  ];
+  
 
   useEffect(() => {
   fetch(`${process.env.REACT_APP_BACKEND_URL}/products`, {
@@ -15,8 +27,40 @@ function CoursesList() {
       return res.json();
     })
     .then(data => setProducts(data))
-    .catch(err => console.error(err));
+    .catch(err => console.error(err))
+    .finally(() => setIsLoading(false));
 }, []);
+
+
+useEffect(() => {
+    if (!isLoading) return;
+
+    const interval = setInterval(() => {
+      // prvo fade out
+      setFade(true);
+
+      // nakon 1s (vrijeme trajanja fade out) promijeni poruku i fade in
+      setTimeout(() => {
+        setCurrentMessageIndex(prevIndex =>
+          (prevIndex + 1) % loadingMessages.length
+        );
+        setFade(false);
+      }, 1000);  // mora biti isto kao CSS trajanje fadea
+    }, 4000); // svake 4 sekunde se mijenja poruka
+
+    return () => clearInterval(interval);
+  }, [isLoading]);
+
+if (isLoading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p className={`loading-message ${fade ? "fade-out" : ""}`}>
+          {loadingMessages[currentMessageIndex]}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="courses-container">
