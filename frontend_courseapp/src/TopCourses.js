@@ -8,7 +8,7 @@ function TopCourses() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8080/courses')
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/products`)
       .then(res => {
         if (!res.ok) throw new Error(`Greška: ${res.status}`);
         return res.json();
