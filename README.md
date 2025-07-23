@@ -31,7 +31,7 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
    ```bash
    git clone https://github.com/tvoj-username/courseapp.git
    cd courseapp/backend
-   
+
 
 2. Uredi src/main/resources/application.properties:
    ```bash
@@ -39,17 +39,17 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
    spring.datasource.username=postgres
    spring.datasource.password=lozinka
    spring.jpa.hibernate.ddl-auto=update
-   
+
 
 3. Pokreni aplikaciju:
    ```bash
    ./mvnw spring-boot:run
-   
+
 
 4. Aplikacija je dostupna na:
    ```bash
    http://localhost:8080/courses
-   
+
 
 ---
 
@@ -58,12 +58,12 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 1. U korijenu backend direktorija napravi Docker image:
    ```bash
    docker build -t courseapp-backend .
-   
+
 
 2. Pokreni container:
    ```bash
    docker run -p 8080:8080 courseapp-backend
-   
+
 
 ---
 
@@ -72,22 +72,22 @@ Full-stack aplikacija za upravljanje edukativnim tečajevima. Omogućuje pregled
 1. Idi u frontend direktorij:
    ```bash
    cd ../frontend
-   
+
 
 2. Instaliraj pakete:
    ```bash
    npm install
-   
+
 
 3. Pokreni aplikaciju:
    ```bash
    npm start
-   
+
 
 4. Otvori:
    ```bash
    http://localhost:3000
-    
+
 
 ---
 
@@ -97,35 +97,29 @@ Kreiraj .env datoteku u frontend/ direktoriju:
 ```bash
 REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
 
+---
+
+## 🌍 Deployment
+
+### 🧾 Backend (Render)
+
+- Platforma: https://render.com
+
+- URL npr.: https://coursedemoapp-1.onrender.com
+
+- Build Command: `./mvnw clean install -DskipTests`
+
+- Start Command: `java -jar target/demo-0.0.1-SNAPSHOT.jar`
 
 ---
 
- ** 🌍 Deployment **
+## 🌐 Frontend (Netlify)
 
-   🧾 Backend (Render)
-   
-   Platforma: https://render.com
+- Platforma: https://netlify.com
 
-   URL npr.: https://coursedemoapp-1.onrender.com
+- Build command: `npm run build`
 
-   Build Command: ./mvnw clean install -DskipTests
+- Publish folder: `build`
 
-   Start Command: java -jar target/demo-0.0.1-SNAPSHOT.jar
-
-
----
-
-** 🌐 Frontend (Netlify) **
-
-   
-   Platforma: https://netlify.com
-
-   Build command: npm run build
-
-   Publish folder: build
-
-   Environment varijabla:
-   REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com
-
-
-
+- Environment varijabla:  
+  `REACT_APP_BACKEND_URL=https://coursedemoapp-1.onrender.com`
