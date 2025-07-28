@@ -2,44 +2,145 @@
 <html lang="hr">
 <head>
   <meta charset="UTF-8" />
-  <title>Mini Dino Game</title>
+  <title>Dino Game</title>
   <style>
-    body {
+    * {
       margin: 0;
-      padding: 20px;
-      font-family: sans-serif;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
     }
-    #box {
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    h2 {
+      margin: 20px 0;
+    }
+
+    #game {
+      position: relative;
+      width: 600px;
+      height: 200px;
+      background-color: #e0e0e0;
+      margin: auto;
+      overflow: hidden;
+      border: 2px solid #333;
+    }
+
+    #player {
       width: 40px;
       height: 40px;
-      background-color: #ff6600;
-      position: relative;
-      top: 0;
-      transition: top 0.3s;
+      background-image: url('https://i.imgur.com/OdL0XPt.png'); /* dinosaurus sprite */
+      background-size: cover;
+      position: absolute;
+      bottom: 0;
+      left: 50px;
     }
+
+    #obstacle {
+      width: 40px;
+      height: 40px;
+      background-color: red;
+      position: absolute;
+      bottom: 0;
+      right: -40px;
+      animation: moveObstacle 2s linear infinite;
+    }
+
+    @keyframes moveObstacle {
+      0% {
+        right: -40px;
+      }
+      100% {
+        right: 600px;
+      }
+    }
+
     .jump {
-      top: -100px !important;
+      animation: jump 0.5s ease-out;
+    }
+
+    @keyframes jump {
+      0% { bottom: 0; }
+      50% { bottom: 100px; }
+      100% { bottom: 0; }
+    }
+
+    #gameOver {
+      display: none;
+      margin-top: 20px;
+      font-size: 24px;
+      color: red;
+    }
+
+    #restartBtn {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <h2>Pritisni razmak za skok! 🦖</h2>
-  <div id="box"></div>
+  <div id="game">
+    <div id="player"></div>
+    <div id="obstacle"></div>
+  </div>
+  <div id="gameOver">💥 Game Over! Pokušaj ponovno.</div>
+  <button id="restartBtn">🔁 Restart</button>
 
   <script>
-    const box = document.getElementById('box');
-    let jumping = false;
+    const player = document.getElementById("player");
+    const obstacle = document.getElementById("obstacle");
+    const gameOverText = document.getElementById("gameOver");
+    const restartBtn = document.getElementById("restartBtn");
+    let isJumping = false;
+    let isGameOver = false;
 
     document.body.onkeydown = function (e) {
-      if (e.code === 'Space' && !jumping) {
-        jumping = true;
-        box.classList.add('jump');
+      if (e.code === "Space" && !isJumping && !isGameOver) {
+        isJumping = true;
+        player.classList.add("jump");
         setTimeout(() => {
-          box.classList.remove('jump');
-          jumping = false;
-        }, 600);
+          player.classList.remove("jump");
+          isJumping = false;
+        }, 500);
       }
+    };
+
+    const checkCollision = setInterval(() => {
+      const playerRect = player.getBoundingClientRect();
+      const obstacleRect = obstacle.getBoundingClientRect();
+
+      if (
+        obstacleRect.left < playerRect.right &&
+        obstacleRect.right > playerRect.left &&
+        obstacleRect.bottom > playerRect.top &&
+        obstacleRect.top < playerRect.bottom &&
+        !isJumping
+      ) {
+        // Sudar!
+        gameOverText.style.display = "block";
+        restartBtn.style.display = "inline-block";
+        obstacle.style.animationPlayState = "paused";
+        isGameOver = true;
+      }
+    }, 10);
+
+    restartBtn.onclick = () => {
+      // reset everything
+      obstacle.style.animation = "none";
+      void obstacle.offsetWidth; // force reflow
+      obstacle.style.animation = "moveObstacle 2s linear infinite";
+
+      gameOverText.style.display = "none";
+      restartBtn.style.display = "none";
+      isGameOver = false;
     };
   </script>
 </body>
