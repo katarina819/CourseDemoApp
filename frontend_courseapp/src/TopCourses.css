@@ -70,3 +70,25 @@
   font-weight: 500;
   font-style: italic;
 }
+
+
+.back-button-container {
+  display: flex;
+  justify-content: flex-end; /* ili 'center' ako želiš centrirano */
+  margin-top: 30px;
+}
+
+.back-button {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #e65c00;
+}

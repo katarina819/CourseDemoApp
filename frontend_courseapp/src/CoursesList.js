@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CourseModal from './CourseModal';
 import './CoursesList.css';
+import { useNavigate } from 'react-router-dom';
 
 function CoursesList() {
   const [products, setProducts] = useState([]);
@@ -8,6 +9,7 @@ function CoursesList() {
   const [isLoading, setIsLoading] = useState(true);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [fade, setFade] = useState(false);
+  const navigate = useNavigate();
 
   const loadingMessages = [
     "⌛ Učitavamo tečajeve...",
@@ -52,15 +54,21 @@ useEffect(() => {
   }, [isLoading, loadingMessages.length]);
 
 if (isLoading) {
-    return (
-      <div className="loading-container">
-        <div className="spinner"></div>
-        <p className={`loading-message ${fade ? "fade-out" : ""}`}>
-          {loadingMessages[currentMessageIndex]}
-        </p>
-      </div>
-    );
-  }
+  return (
+    <div className="loading-container">
+      <h3>Tečajevi se učitavaju... Zaigraj nešto u međuvremenu! 🎮</h3>
+      <iframe
+        src="/dino.html"
+        width="400"
+        height="300"
+        style={{ border: "none", marginTop: "20px" }}
+        title="Mini igra"
+      />
+    </div>
+  );
+}
+
+
 
   return (
     <div className="courses-container">
@@ -112,7 +120,15 @@ if (isLoading) {
         course={selectedCourse}
         onClose={() => setSelectedCourse(null)}
       />
-    </div>
+    <div className="back-button-container">
+  <button
+    onClick={() => navigate('/')}
+    className="back-button"
+  >
+    ⬅️ Natrag na početnu
+  </button>
+</div>
+</div>  
   );
 }
 

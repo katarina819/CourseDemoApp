@@ -1,11 +1,13 @@
 // src/TopCourses.js
 import React, { useEffect, useState } from 'react';
 import './TopCourses.css';
+import { useNavigate } from 'react-router-dom';
 
 function TopCourses() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
      console.log("BACKEND URL:", process.env.REACT_APP_BACKEND_URL);
@@ -38,8 +40,13 @@ function TopCourses() {
           </li>
         ))}
       </ul>
+    <div className="back-button-container">
+      <button className="back-button" onClick={() => navigate('/')}>
+        ⬅️ Natrag na početnu
+      </button>
     </div>
-  );
+  </div>
+);
 }
 
 export default TopCourses;

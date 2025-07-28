@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Dino Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    #box {
+      width: 40px;
+      height: 40px;
+      background-color: #ff6600;
+      position: relative;
+      top: 0;
+      transition: top 0.3s;
+    }
+    .jump {
+      top: -100px !important;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pritisni razmak za skok! 🦖</h2>
+  <div id="box"></div>
+
+  <script>
+    const box = document.getElementById('box');
+    let jumping = false;
+
+    document.body.onkeydown = function (e) {
+      if (e.code === 'Space' && !jumping) {
+        jumping = true;
+        box.classList.add('jump');
+        setTimeout(() => {
+          box.classList.remove('jump');
+          jumping = false;
+        }, 600);
+      }
+    };
+  </script>
+</body>
+</html>
