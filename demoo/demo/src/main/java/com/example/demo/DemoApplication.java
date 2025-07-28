@@ -18,16 +18,16 @@ public class DemoApplication {
 CommandLineRunner initData(CourseRepository courseRepository) {
     return args -> {
         courseRepository.deleteAll(); // OBRIŠI sve prije dodavanja
-        courseRepository.save(new Course("Java Programming", "Uvod u Java programiranje"));
-        courseRepository.save(new Course("Python Basics", "Osnove Pythona"));
-        courseRepository.save(new Course("Web Development", "HTML, CSS i JavaScript"));
-        courseRepository.save(new Course("Spring Boot", "Izrada REST API-ja sa Spring Bootom"));
-        courseRepository.save(new Course("Data Structures", "Osnove struktura podataka"));
-        courseRepository.save(new Course("Algorithms", "Uvod u algoritme"));
-        courseRepository.save(new Course("Databases", "Rad s relacijskim bazama podataka"));
-        courseRepository.save(new Course("React.js", "Frontend razvoj s Reactom"));
-        courseRepository.save(new Course("Docker", "Uvod u kontejnerizaciju s Dockerom"));
-        courseRepository.save(new Course("DevOps Basics", "Osnove DevOps prakse"));
+        courseRepository.save(new Course("Full Stack Web Development", "Sveobuhvatno znanje za izradu web aplikacija (frontend + backend)"));
+        courseRepository.save(new Course("Python Programming", "Svestrani jezik – koristi se u analitici, AI-u, webu i automatizaciji"));
+        courseRepository.save(new Course("Data Science with Python", "Analiza podataka, statistika i strojno učenje – vrlo traženo"));
+        courseRepository.save(new Course("Machine Learning / AI (Python + TensorFlow, PyTorch)", "Potražnja raste zbog AI revolucije (ChatGPT, Copilot, itd)"));
+        courseRepository.save(new Course("DevOps & Cloud Computing (AWS, Docker, Kubernetes)", "Neophodno znanje za moderne CI/CD i cloud sisteme"));
+        courseRepository.save(new Course("Java + Spring Boot za Backend razvoj", "Popularno u korporacijama i enterprise rješenjima"));
+        courseRepository.save(new Course("Mobile App Development (Flutter, React Native)", "Povećana potražnja za cross-platform mobilnim aplikacijama"));
+        courseRepository.save(new Course("Cybersecurity Fundamentals", "Sigurnost je ključna – sve više firmi ulaže u zaštitu podataka"));
+        courseRepository.save(new Course("SQL & Relacijske baze podataka", "Temelj za analizu podataka i backend razvoj"));
+        courseRepository.save(new Course("C# i .NET za izradu poslovnih aplikacija", "Koristi se u mnogim kompanijama za desktop/web aplikacije"));
     };
 }
 
