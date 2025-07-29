@@ -32,8 +32,8 @@ if (isLoading) {
       <h3>Tečajevi se učitavaju... Zaigraj nešto u međuvremenu! 🎮</h3>
       <iframe
         src="/dino.html"
-        width="400"
-        height="300"
+        width="800"
+        height="600"
         style={{ border: "none", marginTop: "20px" }}
         title="Mini igra"
       />
