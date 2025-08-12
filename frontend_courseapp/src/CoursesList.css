@@ -123,4 +123,73 @@
   background-color: #e65c00;
 }
 
+/* 📱 Tableti i manji ekrani */
+@media (max-width: 768px) {
+  .courses-container {
+    padding: 1rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .course-card {
+    padding: 1rem;
+  }
+
+  .course-card img {
+    height: 150px;
+  }
+
+  .course-card h2 {
+    font-size: 1.05rem;
+  }
+
+  .course-card p {
+    font-size: 0.9rem;
+  }
+
+  .course-card button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 📱 Vrlo mali ekrani (npr. do 480px) */
+@media (max-width: 480px) {
+  .courses-grid {
+    grid-template-columns: 1fr; /* kartice jedna ispod druge */
+  }
+
+  .course-card {
+    padding: 0.8rem;
+  }
+
+  .course-card img {
+    height: 140px;
+  }
+
+  .course-card h2 {
+    font-size: 1rem;
+  }
+
+  .course-card p {
+    font-size: 0.85rem;
+  }
+
+  .course-card button {
+    width: 100%; /* gumb preko cijele širine */
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .back-button-container {
+    justify-content: center; /* centriraj back gumb */
+  }
+
+  .back-button {
+    width: 100%;
+  }
+}
 
