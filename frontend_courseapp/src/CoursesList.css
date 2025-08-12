@@ -193,3 +193,19 @@
   }
 }
 
+.game-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* na velikim ekranima max širina */
+  margin: 20px auto 0;
+  aspect-ratio: 4 / 3; /* omjer 800x600 */
+}
+
+.game-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

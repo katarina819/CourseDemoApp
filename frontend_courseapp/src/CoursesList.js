@@ -30,18 +30,15 @@ if (isLoading) {
   return (
     <div className="loading-container">
       <h3>Tečajevi se učitavaju... Zaigraj nešto u međuvremenu! 🎮</h3>
-      <iframe
-        src="/dino.html"
-        width="800"
-        height="600"
-        style={{ border: "none", marginTop: "20px" }}
-        title="Mini igra"
-      />
+      <div className="game-wrapper">
+        <iframe
+          src="/dino.html"
+          title="Mini igra"
+        />
+      </div>
     </div>
   );
 }
-
-
 
   return (
     <div className="courses-container">
